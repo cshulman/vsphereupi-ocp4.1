@@ -81,15 +81,35 @@ module "compute" {
   machine_cidr     = "${var.machine_cidr}"
 }
 
-module "dns" {
-  source = "./route53"
+module "storage" {
+  source = "./storage_machine"
 
-  base_domain         = "${var.base_domain}"
-  cluster_domain      = "${var.cluster_domain}"
-  bootstrap_count     = "${var.bootstrap_complete ? 0 : 1}"
-  bootstrap_ips       = ["${module.bootstrap.ip_addresses}"]
-  control_plane_count = "${var.control_plane_count}"
-  control_plane_ips   = ["${module.control_plane.ip_addresses}"]
-  compute_count       = "${var.compute_count}"
-  compute_ips         = ["${module.compute.ip_addresses}"]
+  name             = "storage"
+  instance_count   = "${var.storage_count}"
+  ignition         = "${var.storage_ignition}"
+  resource_pool_id = "${module.resource_pool.pool_id}"
+  folder           = "${module.folder.path}"
+  datastore        = "${var.vsphere_datastore}"
+  network          = "${var.vm_network}"
+  datacenter_id    = "${data.vsphere_datacenter.dc.id}"
+  template         = "${var.vm_template}"
+  cluster_domain   = "${var.cluster_domain}"
+  ipam             = "${var.ipam}"
+  ipam_token       = "${var.ipam_token}"
+  ip_addresses     = ["${var.storage_ips}"]
+  machine_cidr     = "${var.machine_cidr}"
 }
+
+
+#module "dns" {
+#  source = "./route53"
+#
+#  base_domain         = "${var.base_domain}"
+#  cluster_domain      = "${var.cluster_domain}"
+#  bootstrap_count     = "${var.bootstrap_complete ? 0 : 1}"
+#  bootstrap_ips       = ["${module.bootstrap.ip_addresses}"]
+#  control_plane_count = "${var.control_plane_count}"
+#  control_plane_ips   = ["${module.control_plane.ip_addresses}"]
+#  compute_count       = "${var.compute_count}"
+#  compute_ips         = ["${module.compute.ip_addresses}"]
+#}

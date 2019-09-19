@@ -131,3 +131,22 @@ variable "compute_ips" {
   type    = "list"
   default = []
 }
+
+//////////
+// Storage machine variables
+//////////
+
+variable "storage_count" {
+  type    = "string"
+  default = "3"
+}
+
+variable "storage_ignition" {
+  type = "string"
+}
+
+variable "storage_ips" {
+  type    = "list"
+  default = []
+}
+
