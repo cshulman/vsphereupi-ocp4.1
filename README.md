@@ -1,3 +1,5 @@
+# Subset of https://github.com/cshulman/installer, forked from https://github.com/openshift/installer
+
 # Pre-Requisites
 
 * terraform
