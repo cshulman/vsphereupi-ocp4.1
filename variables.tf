@@ -78,6 +78,11 @@ variable "machine_cidr" {
   type = "string"
 }
 
+variable "dns1" {
+  type        = "string"
+  default = ""
+}
+
 /////////
 // Bootstrap machine variables
 /////////

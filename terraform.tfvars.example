@@ -32,6 +32,9 @@ vm_template = "rhcos-latest"
 // Additionally, IPAM will assign IPs based on the network ID. 
 machine_cidr = "10.0.0.0/24"
 
+// DNS 
+dns1="8.8.8.8"
+
 // The number of control plane VMs to create. Default is 3.
 control_plane_count = 3
 
