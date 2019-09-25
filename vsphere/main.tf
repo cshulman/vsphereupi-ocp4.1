@@ -27,7 +27,7 @@ module "resource_pool" {
 module "bootstrap" {
   source = "./bs_machine"
 
-  name             = "$(var.bootstrap_name)"
+  name             = ["${compact(list(var.bootstrap_name))}"]
   instance_count   = "${var.bootstrap_complete ? 0 : 1}"
   ignition_url     = "${var.bootstrap_ignition_url}"
   resource_pool_id = "${module.resource_pool.pool_id}"
