@@ -146,10 +146,6 @@ variable "storage_count" {
   default = "3"
 }
 
-variable "storage_ignition" {
-  type = "string"
-}
-
 variable "storage_ips" {
   type    = "list"
   default = []
