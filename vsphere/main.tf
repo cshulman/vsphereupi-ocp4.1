@@ -63,7 +63,7 @@ module "control_plane" {
 }
 
 module "compute" {
-  source = "./machine"
+  source = "./compute_machine"
 
   name             = ["${var.compute_names}"]
   instance_count   = "${var.compute_count}"
