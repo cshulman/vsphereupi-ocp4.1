@@ -14,7 +14,7 @@ data "ignition_file" "hostname" {
   mode       = "420"
 
   content {
-    content = "${var.name}"
+    content = "${var.name[count.index]}"
   }
 }
 
