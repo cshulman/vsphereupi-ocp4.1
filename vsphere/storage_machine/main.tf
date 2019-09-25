@@ -42,8 +42,9 @@ resource "vsphere_virtual_machine" "vm" {
 
   disk {
     label            = "disk1"
-    size             = 60
-    thin_provisioned = "${data.vsphere_virtual_machine.template.disks.1.thin_provisioned}"
+    size             = 100
+    thin_provisioned = "${data.vsphere_virtual_machine.template.disks.0.thin_provisioned}"
+    unit_number      = 1
   }
 
   clone {

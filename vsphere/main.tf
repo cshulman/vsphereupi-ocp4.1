@@ -86,7 +86,7 @@ module "storage" {
 
   name             = "storage"
   instance_count   = "${var.storage_count}"
-  ignition         = "${var.storage_ignition}"
+  ignition         = "${var.compute_ignition}"
   resource_pool_id = "${module.resource_pool.pool_id}"
   folder           = "${module.folder.path}"
   datastore        = "${var.vsphere_datastore}"
