@@ -1,5 +1,5 @@
 variable "name" {
-  type = "string"
+  type = "list"
 }
 
 variable "instance_count" {
@@ -42,6 +42,11 @@ variable "datacenter_id" {
 
 variable "template" {
   type = "string"
+}
+
+variable "dns1" {
+  type    = "string"
+  default = ""
 }
 
 variable "machine_cidr" {
