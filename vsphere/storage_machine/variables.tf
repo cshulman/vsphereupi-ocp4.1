@@ -44,6 +44,11 @@ variable "template" {
   type = "string"
 }
 
+variable "dns1" {
+  type    = "string"
+  default = ""
+}
+
 variable "machine_cidr" {
   type = "string"
 }
