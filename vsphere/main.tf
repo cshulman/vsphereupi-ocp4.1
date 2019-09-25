@@ -41,6 +41,7 @@ module "bootstrap" {
   ipam_token       = "${var.ipam_token}"
   ip_addresses     = ["${compact(list(var.bootstrap_ip))}"]
   machine_cidr     = "${var.machine_cidr}"
+  dns1             = "${var.dns1}"
 }
 
 module "control_plane" {
@@ -60,6 +61,7 @@ module "control_plane" {
   ipam_token       = "${var.ipam_token}"
   ip_addresses     = ["${var.control_plane_ips}"]
   machine_cidr     = "${var.machine_cidr}"
+  dns1             = "${var.dns1}"
 }
 
 module "compute" {
@@ -79,6 +81,7 @@ module "compute" {
   ipam_token       = "${var.ipam_token}"
   ip_addresses     = ["${var.compute_ips}"]
   machine_cidr     = "${var.machine_cidr}"
+  dns1             = "${var.dns1}"
 }
 
 module "storage" {
@@ -98,6 +101,7 @@ module "storage" {
   ipam_token       = "${var.ipam_token}"
   ip_addresses     = ["${var.storage_ips}"]
   machine_cidr     = "${var.machine_cidr}"
+  dns1             = "${var.dns1}"
 }
 
 
