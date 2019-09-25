@@ -1,5 +1,5 @@
 variable "name" {
-  type = "string"
+  type = "list"
 }
 
 variable "instance_count" {
