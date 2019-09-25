@@ -87,6 +87,11 @@ variable "dns1" {
 // Bootstrap machine variables
 /////////
 
+variable "bootstrap_name" {
+  type    = "string"
+  default = ""
+}
+
 variable "bootstrap_complete" {
   type    = "string"
   default = "false"
@@ -104,6 +109,11 @@ variable "bootstrap_ip" {
 ///////////
 // Control Plane machine variables
 ///////////
+
+variable "control_plane_names" {
+  type    = "list"
+  default = []
+}
 
 variable "control_plane_count" {
   type    = "string"
@@ -123,6 +133,11 @@ variable "control_plane_ips" {
 // Compute machine variables
 //////////
 
+variable "compute_names" {
+  type    = "list"
+  default = []
+}
+
 variable "compute_count" {
   type    = "string"
   default = "3"
@@ -140,6 +155,11 @@ variable "compute_ips" {
 //////////
 // Storage machine variables
 //////////
+
+variable "storage_names" {
+  type    = "list"
+  default = []
+}
 
 variable "storage_count" {
   type    = "string"

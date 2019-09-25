@@ -67,6 +67,23 @@ ipam = "139.178.89.254"
 ipam_token = "TOKEN_FOR_THE_IPAM_SERVER"
 
 
+// Set bootstrap_name, control_plane_names, compute_names and storage names to customize
+
+// The name assigned to bootstrap VM.
+// bootstrap_name = "bootstrap.name.com"
+
+// The names to assign to the control plane VMs. The length of this list
+// must match the value of control_plane_count.
+//control_plane_names = ["control_plane0.name.com", "control_plane1.name.com", "control_plane2.name.com"]
+
+// The names to assign to the compute VMs. The length of this list
+// must match the value of compute_count.
+//compute_names = ["compute0.name.com", "compute1.name.com", "compute2.name.com"]
+
+// The names to assign to the storage VMs. The length of this list
+// must match the value of storage_count.
+//storage_names = ["storage0.name.com", "storage1.name.com", "storage2.name.com"]
+
 // Set bootstrap_ip, control_plane_ip, compute_ip, and storage_ip if you want to use static
 // IPs reserved someone else, rather than the IPAM server.
 

@@ -27,7 +27,7 @@ module "resource_pool" {
 module "bootstrap" {
   source = "./bs_machine"
 
-  name             = "bootstrap"
+  name             = ["${compact(list(var.bootstrap_name))}"]
   instance_count   = "${var.bootstrap_complete ? 0 : 1}"
   ignition_url     = "${var.bootstrap_ignition_url}"
   resource_pool_id = "${module.resource_pool.pool_id}"
@@ -46,7 +46,7 @@ module "bootstrap" {
 module "control_plane" {
   source = "./control_machine"
 
-  name             = "control-plane"
+  name             = ["${var.control_plane_names}"]
   instance_count   = "${var.control_plane_count}"
   ignition         = "${var.control_plane_ignition}"
   resource_pool_id = "${module.resource_pool.pool_id}"
@@ -65,7 +65,7 @@ module "control_plane" {
 module "compute" {
   source = "./machine"
 
-  name             = "compute"
+  name             = ["${var.compute_names}"]
   instance_count   = "${var.compute_count}"
   ignition         = "${var.compute_ignition}"
   resource_pool_id = "${module.resource_pool.pool_id}"
@@ -84,7 +84,7 @@ module "compute" {
 module "storage" {
   source = "./storage_machine"
 
-  name             = "storage"
+  name             = ["${var.storage_names}"]
   instance_count   = "${var.storage_count}"
   ignition         = "${var.compute_ignition}"
   resource_pool_id = "${module.resource_pool.pool_id}"
