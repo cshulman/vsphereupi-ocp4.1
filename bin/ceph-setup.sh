@@ -8,7 +8,8 @@ oc create -f $rs_path/operator-openshift.yaml
 oc create -f $rs_path/cluster.yaml
 oc create -f $rs_path/toolbox.yaml
 oc create -f $rs_path/dashboard-external-http.yaml 
-oc expose service rook-ceph-mgr-dashboard-external-http
+oc expose service rook-ceph-mgr-dashboard-external-http -n rook-ceph
+
 
 #https://github.com/rook/rook/blob/master/Documentation/ceph-quickstart.md#storage
 oc create -f $rs_path/storageclass.yaml
